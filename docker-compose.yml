@@ -7,10 +7,13 @@ services:
       - POSTGRES_DB=kvs
 
   kvs:
-    build: kvs
-    environment:
-      - POSTGRES_HOST=postgres
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
+  build: kvs
+  environment:
+    - POSTGRES_HOST=postgres
+    - POSTGRES_DB=kvs
+    - POSTGRES_USER=test
+    - POSTGRES_PASSWORD=hunter2
+  ports:
+    - "8080:8080"
+  depends_on:
+    - postgres
