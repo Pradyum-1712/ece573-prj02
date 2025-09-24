@@ -102,10 +102,10 @@ func initializeTransactionLog() error {
 	var err error
 
 	transact, err = NewPostgresTransactionLogger(PostgresDbParams{
-		host:     os.Getenv("POSTGRES_HOST"),
-		dbName:   "kvs",
-		user:     "test",
-		password: "hunter2",
+	host:     os.Getenv("POSTGRES_HOST"),
+	dbName:   os.Getenv("POSTGRES_DB"),
+	user:     os.Getenv("POSTGRES_USER"),
+	password: os.Getenv("POSTGRES_PASSWORD"),
 	})
 	if err != nil {
 		return fmt.Errorf("failed to create transaction logger: %w", err)
